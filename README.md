@@ -39,5 +39,5 @@ snapcraft
 `snapcraft build`: build parts  
 `snapcraft stage`: put parts into staging area  
 `snapcraft snap`: put parts into snap area  
-`snapcraft all: make a snap package  
+`snapcraft all`: make a snap package  
 
