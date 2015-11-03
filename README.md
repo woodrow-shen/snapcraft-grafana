@@ -26,3 +26,18 @@ sudo apt-get install snapcraft
 
 Run `snapcraft` to build a snap.
 
+## How to rebuild
+
+```bash
+snapcraft clean
+snapcraft
+```
+
+## snapcraft commands
+
+`snapcraft pull`: get source
+`snapcraft build`: build parts
+`snapcraft stage`: put parts into staging area
+`snapcraft snap`: put parts into snap area
+`snapcraft all: make a snap package
+
