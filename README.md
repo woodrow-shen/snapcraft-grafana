@@ -22,6 +22,14 @@ sudo apt-get update
 sudo apt-get install snapcraft
 ```
 
+### Install nvm
+
+```bash
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.29.0/install.sh | bash
+nvm install 0.12
+nvm use 0.12
+```
+
 ## How to build
 
 Run `snapcraft` to build a snap.
