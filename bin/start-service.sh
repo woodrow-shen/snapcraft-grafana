@@ -6,19 +6,19 @@ set -x
 mkdir -p $SNAP_APP_DATA_PATH/etc/grafana/
 mkdir -p $SNAP_APP_DATA_PATH/var/log/grafana/
 mkdir -p $SNAP_APP_DATA_PATH/var/lib/grafana/
+mkdir -p $SNAP_APP_DATA_PATH/usr/share/grafana/
+cp -n $SNAP_APP_PATH/conf/defaults.ini $SNAP_APP_DATA_PATH/etc/grafana/grafana.ini
 
-# ugly workaround for embedded SNAP_APP_DATA_PATH into grafana.ini
-cp $SNAP_APP_PATH/conf/defaults.ini $SNAP_APP_DATA_PATH/etc/grafana/grafana.ini
-SNAP_APP_DATA_PATH_ESCAPE=$(echo $SNAP_APP_DATA_PATH | sed -e 's/\\/\\\\/g' -e 's/\//\\\//g' -e 's/&/\\\&/g')
-sed -i "s/SNAP_APP_DATA_PATH/$SNAP_APP_DATA_PATH_ESCAPE/g" $SNAP_APP_DATA_PATH/etc/grafana/grafana.ini
+# WORKING_DIR would be $SNAP_APP_DATA_PATH
+# copy front end files into SNAP_APP_DATA_PATH so that static_root_path variable in grafana.ini could use relative path
+rm -rf $SNAP_APP_DATA_PATH/usr/share/grafana/public
+cp -r --preserve=mode $SNAP_APP_PATH/usr/share/grafana/public $SNAP_APP_DATA_PATH/usr/share/grafana/public
+# copy conf/ into WORKING_DIR so that grafana could find default configuration in $WORKING_DIR/conf/defaults.ini
+rm -rf $SNAP_APP_DATA_PATH/conf
+cp -r --preserve=mode $SNAP_APP_PATH/conf $SNAP_APP_DATA_PATH/conf
 
-# Pass default cfg parameter, see https://github.com/grafana/grafana/issues/2508#issuecomment-130819050
 $SNAP_APP_PATH/bin/grafana \
   -config=$SNAP_APP_DATA_PATH/etc/grafana/grafana.ini \
-  -homepath=$SNAP_APP_PATH/usr/share/grafana \
-  -pidfile=$SNAP_APP_DATA_PATH/var/run/grafana.pid \
-  cfg:default.paths.logs=$SNAP_APP_DATA_PATH/var/log/grafana \
-  cfg:default.paths.data=$SNAP_APP_DATA_PATH/var/lib/grafana \
-  default.auth.ldap.config_file=$SNAP_APP_DATA_PATH/etc/grafana/ldap.toml \
-  default.dashboards.json.path=$SNAP_APP_DATA_PATH/var/lib/grafana/dashboards
+  -homepath=$SNAP_APP_DATA_PATH \
+  -pidfile=$SNAP_APP_DATA_PATH/var/run/grafana.pid
 

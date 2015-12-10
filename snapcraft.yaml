@@ -1,5 +1,5 @@
 name: grafana 
-version: 2.5.0-1
+version: 2.5.0-2
 vendor: Woodrow Shen <woodrow.shen@canonical.com>
 summary: Graphite and InfluxDB Dashboard and graph builder
 description: The graphite dashboard frontend and editor and graph composer
