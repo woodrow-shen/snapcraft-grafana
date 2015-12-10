@@ -4,7 +4,6 @@ vendor: Woodrow Shen <woodrow.shen@canonical.com>
 summary: Graphite and InfluxDB Dashboard and graph builder
 description: The graphite dashboard frontend and editor and graph composer
 icon: icon.png
-architectures: [armhf]
 services:
   grafana:
     start: bin/start-service.sh
