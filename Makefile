@@ -4,12 +4,13 @@ export GOPATH=$(PWD)/parts/grafana
 all:
 	@echo $(GOPATH)
 	go get -t -d github.com/grafana/grafana
+	#cp package.json $(GOPATH)/src/github.com/grafana/grafana/package.json
 	cd $(GOPATH)/src/github.com/grafana/grafana && git checkout v2.5.0 && go run build.go setup && $(GOPATH)/bin/godep restore && go build . 
 	# currenlty snapcraft can't support cross build
 	#&& GOARCH=arm GOARM=7 CGO_ENABLED=1 CC=arm-linux-gnueabihf-gcc go build .
 	cd $(GOPATH)/src/github.com/grafana/grafana && npm install
 	cd $(GOPATH)/src/github.com/grafana/grafana && npm install -g grunt-cli
-	cd $(GOPATH)/src/github.com/grafana/grafana && grunt	
+	cd $(GOPATH)/src/github.com/grafana/grafana && grunt --force
 install:
 	mkdir -p $(DESTDIR)/bin/
 	mkdir -p $(DESTDIR)/conf/
