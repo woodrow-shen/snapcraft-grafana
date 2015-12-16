@@ -22,5 +22,6 @@ install:
 	cp -r parts/grafana/src/github.com/grafana/grafana/public_gen $(DESTDIR)/usr/share/grafana/public
 clean:
 	snapcraft clean
+	rm *.snap
 distclean: clean
  
