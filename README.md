@@ -50,3 +50,14 @@ snapcraft
 `snapcraft snap`: put parts into snap area  
 `snapcraft all`: make a snap package  
 
+## Phantomjs issue for building armhf arch
+
+For armhf, I hit the phantomjs build failed with compiling the grafana,  
+and I forked the phantomjs to work around errors by refer this[1].  
+After getting a successful compilation of phantomjs, just copy binary  
+`bin/phantomjs` to `/usr/bin`.
+
+```bash
+git clone git@github.com:woodrow-shen/phantomjs.git
+```
+[1] https://github.com/aeberhardo/phantomjs-linux-armv6l
