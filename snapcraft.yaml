@@ -20,4 +20,10 @@ parts:
   grafana:
     plugin: make 
     source: . 
-
+  grafana-conf:
+    plugin: copy
+    filesets:
+      configs:
+        - var/*
+    files:
+      var: $configs
