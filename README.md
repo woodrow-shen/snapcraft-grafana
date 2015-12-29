@@ -53,9 +53,11 @@ snapcraft
 ## Phantomjs issue for building armhf arch
 
 For armhf, I hit the phantomjs build failed with compiling the grafana,  
-and I forked the phantomjs to work around errors by refer this[1].  
+and I forked the phantomjs to work around errors by refering this link [1].  
 After getting a successful compilation of phantomjs, just copy binary  
 `bin/phantomjs` to `/usr/bin`.
+
+To fork my works:
 
 ```bash
 git clone git@github.com:woodrow-shen/phantomjs.git
