@@ -1,4 +1,4 @@
-name: grafana 
+name: demo-grafana
 version: 2.6.0-1
 vendor: Woodrow Shen <woodrow.shen@canonical.com>
 summary: Graphite and InfluxDB Dashboard and graph builder
@@ -22,8 +22,5 @@ parts:
     source: . 
   grafana-conf:
     plugin: copy
-    filesets:
-      configs:
-        - var/*
     files:
-      var: $configs
+      var: var

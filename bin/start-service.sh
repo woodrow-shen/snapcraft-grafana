@@ -16,6 +16,8 @@ cp -r --preserve=mode $SNAP_APP_PATH/usr/share/grafana/public $SNAP_APP_DATA_PAT
 # copy conf/ into WORKING_DIR so that grafana could find default configuration in $WORKING_DIR/conf/defaults.ini
 rm -rf $SNAP_APP_DATA_PATH/conf
 cp -r --preserve=mode $SNAP_APP_PATH/conf $SNAP_APP_DATA_PATH/conf
+# copy var/ into WORKING_DIR
+cp -r --preserve=mode $SNAP_APP_PATH/var/* $SNAP_APP_DATA_PATH/var/
 
 $SNAP_APP_PATH/bin/grafana \
   -config=$SNAP_APP_DATA_PATH/etc/grafana/grafana.ini \
