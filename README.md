@@ -48,5 +48,5 @@ To fork my works:
 ```bash
 git clone git@github.com:woodrow-shen/phantomjs.git
 ```
-[1] https://tecadmin.net/install-latest-nodejs-npm-on-ubuntu/
+[1] https://tecadmin.net/install-latest-nodejs-npm-on-ubuntu
 [2] https://github.com/aeberhardo/phantomjs-linux-armv6l 
