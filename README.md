@@ -2,6 +2,10 @@
 
 The purpose is to use [snapcraft](https://github.com/snapcore/snapcraft) to build the grafana as snap package.  
 
+<p align="center">
+<a href="https://build.snapcraft.io/user/woodrow-shen/snapcraft-grafana"><img src="https://build.snapcraft.io/badge/woodrow-shen/snapcraft-grafana.svg" alt="Snap Status"></a>
+</p>
+
 ## Requirement
 
 You need to have a go 1.8+ environment by using gvm for go version control:
