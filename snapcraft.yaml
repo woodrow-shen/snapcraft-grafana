@@ -46,11 +46,11 @@ parts:
     source-type: git
     source: https://github.com/grafana/grafana
     build: |
+      export PATH=~/.npm-global/bin:$PATH
       curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
       sudo apt-get install nodejs
       mkdir ~/.npm-global
       npm config set prefix '~/.npm-global'
-      export PATH=~/.npm-global/bin:$PATH
       npm install -g yarn
       yarn install --pure-lockfile
       npm run build
