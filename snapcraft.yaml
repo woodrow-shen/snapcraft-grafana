@@ -27,6 +27,7 @@ parts:
     source: https://github.com/grafana/grafana
     source-branch: v4.4.x
     prepare: |
+      export GOPATH=$HOME/golang
       mkdir -p $GOPATH/src/github.com/grafana
       ln -s  $PWD $GOPATH/src/github.com/grafana/grafana
     build: |
