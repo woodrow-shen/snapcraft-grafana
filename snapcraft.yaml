@@ -58,3 +58,5 @@ parts:
     install: |
       cp -rf public_gen $SNAPCRAFT_PART_INSTALL/public
     after: [grafana]
+    build-packages:
+      - curl
