@@ -26,11 +26,10 @@ parts:
     source-type: git
     source: https://github.com/grafana/grafana
     source-branch: v4.4.x
-    prepare: |
+    build: |
       export GOPATH=$HOME/golang
       mkdir -p $GOPATH/src/github.com/grafana
       ln -s  $PWD $GOPATH/src/github.com/grafana/grafana
-    build: |
       cd $GOPATH/src/github.com/grafana/grafana
       go run build.go setup
       go run build.go build
@@ -46,13 +45,12 @@ parts:
     plugin: nil
     source-type: git
     source: https://github.com/grafana/grafana
-    prepare: |
+    build: |
       curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
       sudo apt-get install nodejs
       mkdir ~/.npm-global
       npm config set prefix '~/.npm-global'
       export PATH=~/.npm-global/bin:$PATH
-    build: |
       npm install -g yarn
       yarn install --pure-lockfile
       npm run build
