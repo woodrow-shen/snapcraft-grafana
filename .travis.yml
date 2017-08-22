@@ -1,0 +1,6 @@
+language: go
+sudo: enabled
+dist: xenial
+before_install:
+  - sudo apt-get install snapcraft
+script: snapcraft clean && snapcraft
