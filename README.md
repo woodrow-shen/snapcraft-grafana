@@ -11,7 +11,7 @@ The purpose is to use [snapcraft](https://github.com/snapcore/snapcraft) to buil
 You need to have a go 1.8+ environment by using gvm for go version control:
 ```bash
 bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
-source ./.gvm/scripts/gvm
+source ~/.gvm/scripts/gvm
 gvm install go1.8.3
 gvm use go1.8.3 --default
 ```
