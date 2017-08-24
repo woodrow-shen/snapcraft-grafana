@@ -42,13 +42,13 @@ parts:
   go:
     source-tag: go1.8.3
   grafana-ui:
-    plugin: nil
+    plugin: nodejs
     source-type: git
     source: https://github.com/grafana/grafana
+    node-engine: '6.11.2'
+    node-package-manager: yarn
     build: |
       export PATH=$HOME/.npm-global/bin:$PATH
-      curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
-      sudo apt-get install nodejs
       mkdir ~/.npm-global
       npm config set prefix '~/.npm-global'
       npm install -g yarn
@@ -57,5 +57,3 @@ parts:
     install: |
       cp -rf public_gen $SNAPCRAFT_PART_INSTALL/public
     after: [grafana]
-    build-packages:
-      - curl
