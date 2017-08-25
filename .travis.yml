@@ -20,9 +20,5 @@ install:
   - sudo chroot $CHROOT apt update
   - sudo chroot $CHROOT apt install -y livecd-rootfs snapcraft
   - sudo cp -a bin conf snapcraft.yaml $CHROOT/build
-  - bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
-  - source ~/.gvm/scripts/gvm
-  - gvm install go1.8.3
-  - gvm use go1.8.3 --default
 script:
   - sudo chroot $CHROOT sh -c 'mount -t proc proc /proc; mount -t sysfs sys /sys; cd build; snapcraft'
